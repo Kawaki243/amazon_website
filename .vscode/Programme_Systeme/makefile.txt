@@ -1,0 +1,11 @@
+edit : main.o cpile.o
+	gcc -o edit main.o cpile.o
+
+main.o : main.c cpile.h base.h
+cpile.o : cpile.c base.h
+
+%.o :
+		gcc -c -g $< -Iinclude
+
+clean :
+	rm edit *.o
